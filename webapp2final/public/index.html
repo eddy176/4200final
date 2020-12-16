@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Alien Sightings</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    </head>
+    <body>
+        <div id="app">
+            <nav>
+                <div id="logo">
+                    <h1>Eddy's Final</h1>
+                </div>
+                
+            </nav>
+
+            <main>
+                <div class="wrapper">
+                    <div id="card1" class="card">
+                        <div id="sightinglist">Add a sighting</div>
+                        <div id="tabcontent">
+                            <div id="alienform">
+                                <div id="left">
+                                    <label>Location</label>
+                                    <input class="box" type="text" v-model="newLocation">
+                                    <label>Height</label>
+                                    <input class="box" type="text" v-model="newHeight">
+                                    <label>Type</label>
+                                    <input class="box" type="text" v-model="newType">
+                                    <label>Size</label>
+                                    <input class="box" type="text" v-model="newSize">
+                                    <label>Color</label>
+                                    <input class="box"  type="text" v-model="newColor">
+
+                                    <button v-on:click="goButtonClicked">Add sighting</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sighting-flex" >
+                        <div id="sightinglist">Locations of sightings</div>
+                        <div class="sighting-card" v-for="(sighting, index) in sightings">
+                            <div class="cardcontent">
+                                <ul>
+                                    
+                                    <li class="sightinglocation" >
+                                        <strong> {{ sighting.location }} </strong>
+                                     </li>
+
+                                     <button v-on:click="track(index)">Track Sighting</button>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sighting-flex" >
+                        <div id="sightinglist">Track a Sighting</div>
+                        <div class="sighting-card" v-for="(sighting, index) in tracksightings">
+                            <div class="cardcontent">
+                                <ul>
+                                    
+                                    <li class="sightinglocation" >
+                                        <strong> {{ sighting.location }} </strong>
+                                     </li>
+                                     <li class="sightingheight" >
+                                        <strong> {{ sighting.height }} </strong>
+                                     </li>
+                                     <li class="sightingtype" >
+                                        <strong> {{ sighting.type }} </strong>
+                                     </li>
+                                     <li class="sightingsize" >
+                                        <strong> {{ sighting.size }} </strong>
+                                     </li>
+                                     <li class="sightingcolor" >
+                                        <strong> {{ sighting.color }} </strong>
+                                     </li>
+
+         
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
